@@ -1,6 +1,6 @@
 # Docker Worflow 
 
-Deploy a React app using GitHub, Travis CI, and AWS. 
+Deploy a React app using GitHub, Travis CI, Nginx and AWS.
 
 ### Project Structure 
 Node version: 
@@ -28,7 +28,7 @@ npm run build
 ### Docker 
 
 #### Dockerfile
-Build the image and run the container: 
+Use the `Dockerfile.dev` file for local development
 ```shell
 # Build image 
 docker build -f Dockerfile.dev -t docker-workflow/react .
@@ -46,3 +46,10 @@ Start the container
 ```shell
 docker-compose up
 ```
+Enter container
+```shell
+docker exec -it <container> sh 
+```
+
+### Nginx 
+Nginx is used to serve the application in production.
