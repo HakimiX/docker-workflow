@@ -42,3 +42,7 @@ docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app docker-workflow/reac
 ```
 
 #### Docker Compose
+Start the container 
+```shell
+docker-compose up
+```
