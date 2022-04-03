@@ -14,7 +14,6 @@ Node version:
 ```Shell 
 v14.18.1
 ```
-
 Generic React project created with: 
 ```shell
 npx create-react-app frontend
