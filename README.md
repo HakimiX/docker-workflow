@@ -2,18 +2,23 @@
 
 Deploy a React app using GitHub, Travis CI, Nginx and AWS.
 
+* [Project Structure](#project-structure)
+* [Docker](#docker)
+  * [Dockerfile](#dockerfile)
+  * [Dockerfile.dev](#dockerfiledev)
+  * [Docker Compose](#docker-compose)
+* [Nginx](#nginx)
+
 ### Project Structure 
 Node version: 
 ```Shell 
 v14.18.1
 ```
 
-Project created with: 
+Generic React roject created with: 
 ```shell
 npx create-react-app frontend
 ```
-
-### Run 
 ```shell
 # Start the dev server
 npm run start 
@@ -28,6 +33,35 @@ npm run build
 ### Docker 
 
 #### Dockerfile
+
+A Multiphase docker setup is used for the production DockerFile. 
+
+The building phase is responsible for installing dependencies and building
+a production version of the app (the `build` directory).
+
+The running phase is using the output from the building phase
+(the `build` directory) to serve the app.
+```Dockerfile
+# Building phase 
+FROM node:14-alpine 
+
+# Running phase
+FROM nginx
+```
+
+Build the image and run the container (nginx server)
+```shell
+# build the image
+docker build -t docker-workflow/react-nginx .
+
+# Run nginx server (nginx runs on port 80)
+docker run -p 8080:80 docker-workflow/react-nginx
+
+# Navigate to 
+http://localhost:8080
+```
+
+#### Dockerfile.dev
 Use the `Dockerfile.dev` file for local development
 ```shell
 # Build image 
