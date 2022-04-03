@@ -80,12 +80,15 @@ docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app docker-workflow/reac
 #### Docker Compose
 Start the container 
 ```shell
-docker-compose up
+docker-compose -f docker-compose-dev.yml up
 ```
 Enter container
 ```shell
 docker exec -it <container> sh 
 ```
+
+AWS Elastic Beanstalk will look for a `docker-compose.yml` file to build from 
+by default instead of a Dockerfile. 
 
 ### Nginx 
 Nginx is used to serve the application in production.
