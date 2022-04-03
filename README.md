@@ -15,7 +15,7 @@ Node version:
 v14.18.1
 ```
 
-Generic React roject created with: 
+Generic React project created with: 
 ```shell
 npx create-react-app frontend
 ```
@@ -69,6 +69,9 @@ docker build -f Dockerfile.dev -t docker-workflow/react .
 
 # Run the container 
 docker run -p 3000:3000 docker-workflow/react
+
+# Navigate to 
+http://localhost:3000
 ```
 Real-time update using volumes
 ```shell
