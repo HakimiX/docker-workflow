@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t hakimix/docker-workflow -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true hakimix/docker-workflow npm run test
