@@ -8,6 +8,7 @@ Deploy a React app using GitHub, Travis CI, Nginx and AWS.
   * [Dockerfile.dev](#dockerfiledev)
   * [Docker Compose](#docker-compose)
 * [Nginx](#nginx)
+* [AWS](#aws)
 
 ### Project Structure 
 Node version: 
@@ -92,3 +93,14 @@ by default instead of a Dockerfile.
 
 ### Nginx 
 Nginx is used to serve the application in production.
+
+### Travis CI
+
+The AWS IAM credentials (acces key and secret key) are stored as 
+environment variables in Travis CI. 
+
+### AWS 
+The app is deployed using AWS Elastic Beanstalk which will create an environment 
+(security groups, load balancer, etc.) and automatically scale everything. 
+
+Travis CI will put artifacts (code) into a s3 bucket. 
